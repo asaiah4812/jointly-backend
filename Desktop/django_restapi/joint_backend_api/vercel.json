@@ -4,6 +4,13 @@
       "src": "joint_backend_api/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "Python3.13.4" }
+    },
+    {
+      "src": "build_files.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir":"staticfiles_build"
+      }
     }
   ],
   "routes": [
