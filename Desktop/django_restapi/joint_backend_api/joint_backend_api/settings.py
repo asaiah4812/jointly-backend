@@ -26,9 +26,9 @@ from decouple import config
 SECRET_KEY = 'django-insecure-ozwy(lpzb+_dol*8z$nvn@oo4(19!8g(-xt54^ip#z#(b8vn@u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh']
 
 
 # Application definition
