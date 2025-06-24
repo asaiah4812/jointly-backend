@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joint Backend API</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+        :root {
+            --primary: #4f8cff;
+            --secondary: #38b6ff;
+            --bg-gradient: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+            --text-dark: #22223b;
+            --text-light: #4a4e69;
+            --card-bg: #fff;
+            --shadow: 0 4px 24px rgba(79, 140, 255, 0.10);
+        }
+        a{
+            text-decoration: none;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+            color: var(--text-dark);
+        }
+        .navbar {
+            width: 100%;
+            padding: 1.2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: var(--bg-gradient);
+            border-radius: 0 0 48px 48px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+            animation: fadeInDown 1s;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.2rem;
+            color: var(--text-light);
+            animation: fadeInUp 1.2s;
+        }
+        .cta-btn {
+            padding: 0.9rem 2.5rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(79, 140, 255, 0.15);
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            animation: fadeIn 1.5s;
+        }
+        .cta-btn:hover {
+            background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+            transform: translateY(-2px) scale(1.04);
+            box-shadow: 0 8px 32px rgba(56, 182, 255, 0.18);
+        }
+        .features {
+            margin: 3.5rem auto 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            max-width: 1100px;
+            animation: fadeIn 2s;
+        }
+        .feature {
+            background: var(--card-bg);
+            border-radius: 18px;
+            box-shadow: 0 2px 16px rgba(34, 34, 59, 0.08);
+            padding: 2.2rem 1.7rem 1.7rem 1.7rem;
+            max-width: 320px;
+            min-width: 260px;
+            flex: 1 1 260px;
+            text-align: left;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .feature:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(79, 140, 255, 0.13);
+        }
+        .feature i {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .feature p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem 0 1rem 0;
+            background: #f8fafc;
+            text-align: center;
+            color: #7a7a7a;
+            font-size: 1rem;
+            border-radius: 32px 32px 0 0;
+            box-shadow: 0 -2px 12px rgba(34, 34, 59, 0.04);
+        }
+        @media (max-width: 900px) {
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .hero {
+                min-height: 60vh;
+                border-radius: 0 0 24px 24px;
+            }
+            .features {
+                gap: 1.2rem;
+            }
+            .feature {
+                padding: 1.5rem 1rem 1.2rem 1rem;
+            }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-database"></i> JointAPI
+        </div>
+    </nav>
+    <section class="hero">
+        <h1>Welcome to Joint Backend API</h1>
+        <p>Your modern, scalable Django REST API backend.<br>Fast, secure, and ready for your next project.</p>
+        <a href="/admin/" class="cta-btn">Go to Admin</a>
+        <a href="/emails/" class="cta-btn" style="margin-top:1.2rem; background:linear-gradient(90deg,#38b6ff 0%,#4f8cff 100%);font-size:1rem;">View Email List</a>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-rocket"></i>
+            <h3>Fast & Reliable</h3>
+            <p>Built with Django REST Framework for high performance and reliability. Enjoy blazing fast APIs and robust backend logic.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Secure by Default</h3>
+            <p>Security best practices out of the box, including authentication, permissions, and CORS support for peace of mind.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-plug"></i>
+            <h3>API Ready</h3>
+            <p>Easy-to-use endpoints for your frontend, mobile apps, or third-party integrations. Start building right away!</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-cloud"></i>
+            <h3>Cloud Deployable</h3>
+            <p>Optimized for serverless and cloud platforms like Vercel. Effortless deployment and scaling for your projects.</p>
+        </div>
+    </section>
+    <footer class="footer">
+        &copy; 2025 Joint Backend API &mdash; Built with <span style="color:#4f8cff;">Django</span> & <span style="color:#38b6ff;">DRF</span>
+    </footer>
+</body>
+</html>
