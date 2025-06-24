@@ -27,9 +27,9 @@ from decouple import config
 SECRET_KEY = 'django-insecure-ozwy(lpzb+_dol*8z$nvn@oo4(19!8g(-xt54^ip#z#(b8vn@u'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh']
+ALLOWED_HOSTS = ['.vercel.app', '127.0.0.1', '.now.sh', 'localhost']
 
 
 # Application definition
@@ -146,12 +146,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Use WhiteNoise for static file serving
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-
-# WhiteNoise configuration
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_AUTOREFRESH = True
+# Use WhiteNoise for static file serving - simpler configuration
+STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')

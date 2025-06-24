@@ -12,9 +12,18 @@
       "dest": "/static/$1"
     },
     {
+      "src": "/admin/static/(.*)",
+      "dest": "/static/admin/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "joint_backend_api/wsgi.py"
     }
   ],
+  "functions": {
+    "joint_backend_api/wsgi.py": {
+      "maxDuration": 30
+    }
+  },
   "buildCommand": "bash build_files.sh"
 }
