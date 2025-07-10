@@ -88,6 +88,10 @@ DATABASES = {
     'default': dj_database_url.parse(config('DATABASE_URL'))
 }
 
+# Add this check above or before usage:
+if not config('DATABASE_URL', default=None):
+    raise ValueError("DATABASE_URL environment variable is not set")
+
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',
@@ -142,16 +146,11 @@ CORS_ALLOW_ALL_ORIGINS = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-# Use WhiteNoise for static file serving - simpler configuration
-STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
-
+STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
